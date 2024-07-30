@@ -1,0 +1,11 @@
+.hero {
+  height: 100svh;
+  flex-direction: column;
+}
+
+.hero__title {
+  font-size: calc(var(--gh-font-size-brand) + 3svw);
+  color: var(--gh-primary-color);
+  text-shadow: var(--gh-box-shadow-black);
+  text-align: center;
+}

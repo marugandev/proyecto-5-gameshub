@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bangers&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Yanone+Kaffeesatz&family=Young+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bangers&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Noto+Color+Emoji&family=Yanone+Kaffeesatz&family=Young+Serif&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: var(--gh-font-family-primary);
+  cursor: default;
+}
+
+:root {
+  /* Colors */
+  --gh-primary-color: #ffd700; /* Yellow */
+  --gh-secondary-color: #000000; /* Black */
+  --gh-tertiary-color: #333333; /* Grey */
+  --gh-background-color: rgb(240, 240, 240); /* White soft */
+  --gh-text-color: #ffffff; /* White */
+  --gh-green-color: #228b22; /* Forest Green */
+  --gh-red-color: #dc143c; /* Crimson */
+
+  /* rgb *opacity */
+  --gh-rgb-primary-color: 255, 215, 0; /* Yellow */
+  --gh-rgb-secondary-color: 0, 0, 0; /* Black */
+  --gh-rgb-tertiary-color: 51, 51, 51; /* Grey */
+  --gh-rgb-background-color: 240, 240, 240; /* White soft */
+  --gh-rgb-text-color: 255, 255, 255; /* White */
+  --gh-rgb-green-color: 34, 139, 34; /* Forest Green */
+  --gh-rgb-red-color: 220, 20, 60; /* Crimson */
+  /* Bg-opacity */
+  --gh-rgba-background-opacity: 0.8;
+
+  /* Font Family */
+  --gh-font-family-primary: "Yanone Kaffeesatz", sans-serif;
+  --gh-font-family-secondary: "Martel Sans", sans-serif;
+  --gh-font-family-icons: "Noto Color Emoji", sans-serif;
+
+  /* Font sizes */
+  --gh-font-size-brand: 5rem;
+
+  --gh-font-size-large: 3rem;
+  --gh-font-size-medium: 2rem;
+  --gh-font-size-small: 1.5rem;
+  --gh-font-size-xsmall: 1rem;
+
+  /* Margins */
+  --gh-margin-large: 2rem;
+  --gh-margin-medium: 1.5rem;
+  --gh-margin-small: 1rem;
+  --gh-margin-xsmall: 0.5rem;
+
+  /* Paddings */
+  --gh-padding-large: 32px 16px;
+  --gh-padding-medium: 16px 8px;
+  --gh-padding-small: 8px 4px;
+  --gh-padding-xsmall: 4px 2px;
+
+  /* Gaps */
+  --gh-gap-large: 2rem;
+  --gh-gap-medium: 1.5rem;
+  --gh-gap-small: 1rem;
+  --gh-gap-xsmall: 0.5rem;
+
+  /* Border Radius */
+  --gh-border-radius-large: 1rem;
+  --gh-border-radius-medium: 0.75rem;
+  --gh-border-radius-small: 0.5rem;
+  --gh-border-radius-xsmall: 0.25rem;
+
+  /* Box Shadow */
+  --gh-box-shadow-black: 1px 1px 0 var(--gh-secondary-color),
+    -1px -1px 0 var(--gh-secondary-color), 1px -1px 0 var(--gh-secondary-color),
+    -1px 1px 0 var(--gh-secondary-color), 2px 2px 0 var(--gh-secondary-color),
+    -2px -2px 0 var(--gh-secondary-color), 2px -2px 0 var(--gh-secondary-color),
+    -2px 2px 0 var(--gh-secondary-color);
+
+  --gh-box-shadow-yellow: 1px 1px 0 var(--gh-primary-color),
+    -1px -1px 0 var(--gh-primary-color), 1px -1px 0 var(--gh-primary-color),
+    -1px 1px 0 var(--gh-primary-color), 2px 2px 0 var(--gh-primary-color),
+    -2px -2px 0 var(--gh-primary-color), 2px -2px 0 var(--gh-primary-color),
+    -2px 2px 0 var(--gh-primary-color);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gh-gap-medium);
+}
+
+body {
+  background-image: url("/assets/images/hero_playing_videogames.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100svh;
+}

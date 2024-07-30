@@ -1,0 +1,51 @@
+.trivial {
+  flex-direction: column;
+  /*   height: 100svh; */
+  /*   overflow-y: scroll; */
+}
+
+.trivial__title {
+  margin-top: var(--gh-margin-medium);
+  font-size: calc(var(--gh-font-size-large) + 3svw);
+  color: var(--gh-primary-color);
+  text-shadow: var(--gh-box-shadow-black);
+  text-align: center;
+}
+
+.trivial__leyend {
+  font-size: var(--gh-font-size-small);
+  color: var(--gh-secondary-color);
+  text-align: center;
+}
+
+.trivial__card-container {
+  height: 100%;
+  width: 90%;
+  overflow-y: scroll;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.trivial__card {
+  width: 100%;
+  flex-direction: column;
+  font-family: var(--gh-font-family-secondary);
+  font-size: var(--gh-font-size-xsmall);
+  font-weight: 700;
+  color: var(--gh-secondary-color);
+  padding: var(--gh-padding-medium);
+  border-radius: var(--gh-border-radius-medium);
+  background-color: rgba(
+    var(--gh-rgb-background-color),
+    var(--gh-rgba-background-opacity)
+  );
+}
+
+.trivial__response-button {
+  font-family: var(--gh-font-family-secondary);
+  font-size: var(--gh-font-size-xsmall);
+}
+
+.trivial__button-validate {
+  margin-bottom: var(--gh-margin-medium);
+}
