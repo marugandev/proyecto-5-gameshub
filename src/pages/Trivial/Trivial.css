@@ -1,7 +1,7 @@
 .trivial {
   flex-direction: column;
   /*   height: 100svh; */
-  /*   overflow-y: scroll; */
+  overflow-y: scroll;
 }
 
 .trivial__title {
@@ -48,4 +48,22 @@
 
 .trivial__button-validate {
   margin-bottom: var(--gh-margin-medium);
+}
+
+.trivial__results-container {
+  width: 90%;
+  flex-direction: column;
+  color: var(--gh-secondary-color);
+  padding: var(--gh-padding-medium);
+  border-radius: var(--gh-border-radius-medium);
+  background-color: rgba(
+    var(--gh-rgb-background-color),
+    var(--gh-rgba-background-opacity)
+  );
+}
+
+.trivial__results {
+  font-size: var(--gh-font-size-small);
+  color: var(--gh-secondary-color);
+  text-align: center;
 }

@@ -1,14 +1,11 @@
-// HandleClick.js
-export const HandleClick = (button, callback, sectionToRemove) => {
-  document.addEventListener("DOMContentLoaded", () => {
-    if (button) {
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        callback();
-        if (sectionToRemove) {
-          sectionToRemove.remove();
-        }
-      });
-    }
-  });
+export const HandleClick = (button, sectionToRemove, callback) => {
+  if (button) {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (sectionToRemove) {
+        sectionToRemove.remove();
+      }
+      callback();
+    });
+  }
 };

@@ -1,0 +1,8 @@
+.punctuation {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}

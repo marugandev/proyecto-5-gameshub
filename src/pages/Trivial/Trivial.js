@@ -1,6 +1,8 @@
 import "./Trivial.css";
 import { TrivialData } from "../../data/TrivialData/TrivialData";
 import { Button } from "../../components/Button/Button";
+import { HandleClick } from "../../utils/functions/EventListeners/HandleClick";
+import { Menu } from "../../components/Menu/Menu";
 
 export const Trivial = () => {
   const trivial = document.createElement("section");
@@ -18,7 +20,8 @@ export const Trivial = () => {
   );
   const buttonValidate = Button({
     textContent: "Comprobar",
-    importance: "btn--tertiary"
+    importance: "btn--tertiary",
+    size: "btn--s"
   });
   buttonValidate.classList.add("trivial__button-validate");
 
@@ -57,11 +60,51 @@ export const Trivial = () => {
   });
 
   buttonValidate.addEventListener("click", () => {
-    console.log("comprobar");
+    const allCards = trivialCardContainer.querySelectorAll(".trivial__card");
+    let count = 0;
+
+    allCards.forEach((card, index) => {
+      const selectedButton = card.querySelector(".btn--primary-selected");
+      const correctAnswer = TrivialData[index].correct;
+
+      if (selectedButton && selectedButton.textContent === correctAnswer) {
+        count++;
+      }
+    });
+
+    trivialCardContainer.remove();
+
+    const resultsContainer = document.createElement("section");
+    resultsContainer.classList.add(
+      "trivial__results-container",
+      "flex-container"
+    );
+    const results = document.createElement("p");
+    results.classList.add("trivial__results");
+    if (count === 20) {
+      results.textContent =
+        "¡¡Enhorabuena!!🙌🙌🎉🎉, todas tus respuestas son correctas.";
+    } else {
+      results.textContent = `Respuestas correctas: ${count} de ${TrivialData.length}`;
+    }
+
+    const buttonPlayAgain = Button({
+      textContent: "Volver a jugar",
+      importance: "btn--tertiary",
+      size: "btn--s"
+    });
+    buttonPlayAgain.classList.add("trivial__button-play-again");
+
+    HandleClick(buttonPlayAgain, trivial, Trivial);
+
+    trivial.append(resultsContainer);
+    resultsContainer.append(results);
+    resultsContainer.append(buttonPlayAgain);
   });
 
-  trivial.prepend(leyend);
-  trivial.prepend(gameTitle);
+  trivial.append(gameTitle);
+  trivial.append(leyend);
+  trivial.append(Menu());
   trivial.append(trivialCardContainer);
   document.querySelector("main").append(trivial);
 

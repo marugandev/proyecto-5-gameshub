@@ -1,11 +1,10 @@
 import "./Hero.css";
 import { Button } from "../Button/Button";
 import { GamesData } from "../../data/GamesData.js/GamesData";
-
 import { HandleClick } from "../../utils/functions/EventListeners/HandleClick";
+import { Punctuation } from "../Punctuation/Punctuation";
 
 export const Hero = () => {
-  const main = document.createElement("main");
   const sectionHero = document.createElement("section");
   sectionHero.classList.add("hero", "flex-container");
 
@@ -18,13 +17,13 @@ export const Hero = () => {
 
     const callback = game.function;
     if (callback) {
-      HandleClick(gameButton, callback, sectionHero);
+      HandleClick(gameButton, sectionHero, callback);
     }
 
     sectionHero.append(gameButton);
   });
 
-  document.body.append(main);
-  main.append(sectionHero);
+  document.querySelector("main").append(sectionHero);
+  sectionHero.append(Punctuation());
   sectionHero.prepend(h1);
 };

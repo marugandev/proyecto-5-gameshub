@@ -1,0 +1,69 @@
+.form {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    var(--gh-rgb-background-color),
+    var(--gh-rgba-background-opacity)
+  );
+}
+
+.form__label {
+  display: none;
+}
+
+.form__input {
+  margin-bottom: 700px;
+  width: 350px;
+  background-color: transparent;
+  border-radius: 50px;
+  border: none;
+  font-size: var(--gh-font-size-medium);
+  padding: var(--gh-padding-medium);
+  box-shadow: var(--gh-box-shadow-black);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.form__input::placeholder {
+  color: (var(--gh-secondary-color));
+}
+
+/* Para navegadores WebKit (Safari, Chrome, Edge) */
+.form__input::-webkit-input-placeholder {
+  color: (var(--gh-secondary-color));
+}
+
+/* Para Firefox */
+.form__input::-moz-placeholder {
+  color: (var(--gh-secondary-color));
+}
+
+/* Para Internet Explorer 10-11 */
+.form__input:-ms-input-placeholder {
+  color: (var(--gh-secondary-color));
+}
+
+/* Para Microsoft Edge */
+.form__input::-ms-input-placeholder {
+  color: (var(--gh-secondary-color));
+}
+
+.form__button {
+  margin-bottom: 700px;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .form {
+    flex-direction: column;
+  }
+  .form__input {
+    margin-bottom: 0;
+  }
+  .form__button {
+    width: 350px;
+  }
+}
