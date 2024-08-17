@@ -150,7 +150,7 @@ export const TresEnRaya = () => {
       computerMoves.push(index);
 
       if (checkWinner(computerMoves)) {
-        score--; // Decrementar el puntaje
+        score--;
         updateScore();
         resultsScreen("Perdiste la partida 😔, Gana Computer");
         return;
