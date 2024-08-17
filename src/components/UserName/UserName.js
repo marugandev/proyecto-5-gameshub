@@ -1,7 +1,9 @@
-import { Button } from "../Button/Button";
 import "./UserName.css";
 
+import { Button } from "../Button/Button";
+
 export const UserName = () => {
+  console.log("PRUEBA");
   const form = document.createElement("form");
   form.classList.add("form", "flex-container");
 
@@ -12,8 +14,8 @@ export const UserName = () => {
   const buttonUserName = Button({
     type: "submit",
     textContent: "Entrar",
-    importance: "btn--tertiary",
-    size: "btn--m"
+    importance: "tertiary",
+    size: "m"
   });
   buttonUserName.classList.add("form__button");
   form.append(buttonUserName);
@@ -28,8 +30,6 @@ export const UserName = () => {
       /* alert(`Nombre de usuario ${username} guardado.`); */
       /*  usernameInput.value = ""; */
       form.remove();
-    } else {
-      alert("Por favor, introduce un nombre de usuario.");
     }
   });
 

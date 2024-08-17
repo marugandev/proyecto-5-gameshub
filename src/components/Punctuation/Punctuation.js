@@ -1,18 +1,35 @@
 import "./Punctuation.css";
 import { Button } from "../Button/Button";
-import { HandleClick } from "../../utils/functions/EventListeners/HandleClick";
-import { Hero } from "../Hero/Hero";
+import { HandleClick } from "../../utils/Listeners/HandleClick/HandleClick";
 
-export const Punctuation = () => {
+export const Punctuation = (altClass) => {
   const punctuation = Button({
     textContent: "Puntuación",
-    importance: "btn--tertiary",
-    size: "btn--s"
+    importance: "tertiary",
+    size: "s"
   });
 
   punctuation.classList.add("punctuation");
+  punctuation.classList.add(altClass);
 
-  HandleClick(punctuation, document.querySelector("main"), Hero);
+  let isScoreVisible = false;
+
+  const showUserName = () => {
+    const userName = localStorage.getItem("userName");
+    const score = localStorage.getItem("score") || 0;
+
+    if (userName) {
+      if (isScoreVisible) {
+        punctuation.textContent = "Puntuación";
+      } else {
+        punctuation.textContent = `${userName}: ${score} puntos`;
+      }
+      isScoreVisible = !isScoreVisible;
+    }
+  };
+  HandleClick(punctuation, "", showUserName);
+
+  document.querySelector("main").append(punctuation);
 
   return punctuation;
 };

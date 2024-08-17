@@ -1,27 +1,44 @@
 import "./Trivial.css";
+
+import { Menu } from "../../components/Menu/Menu";
 import { TrivialData } from "../../data/TrivialData/TrivialData";
 import { Button } from "../../components/Button/Button";
-import { HandleClick } from "../../utils/functions/EventListeners/HandleClick";
-import { Menu } from "../../components/Menu/Menu";
+import { HandleClick } from "../../utils/Listeners/HandleClick/HandleClick";
+import { Punctuation } from "../../components/Punctuation/Punctuation";
 
 export const Trivial = () => {
+  document.querySelector("main").innerHTML = "";
+
+  const existingFooter = document.querySelector("footer");
+
+  if (existingFooter) {
+    existingFooter.remove();
+  }
+
+  Menu();
+
   const trivial = document.createElement("section");
   trivial.classList.add("trivial", "flex-container");
+
   const gameTitle = document.createElement("h2");
   gameTitle.textContent = "Trivial";
   gameTitle.classList.add("trivial__title");
+
   const leyend = document.createElement("p");
   leyend.classList.add("trivial__leyend");
-  leyend.textContent = "20 preguntas | Sólo 1 respuesta válida";
+  leyend.textContent =
+    "20 preguntas | Sólo 1 respuesta válida | [+1 punto pregunta acertada]";
+
   const trivialCardContainer = document.createElement("div");
   trivialCardContainer.classList.add(
     "trivial__card-container",
     "flex-container"
   );
+
   const buttonValidate = Button({
     textContent: "Comprobar",
-    importance: "btn--tertiary",
-    size: "btn--s"
+    importance: "tertiary",
+    size: "s"
   });
   buttonValidate.classList.add("trivial__button-validate");
 
@@ -35,7 +52,7 @@ export const Trivial = () => {
       responseLi.classList.add("trivial__response-li");
       const responseButton = Button({
         textContent: res,
-        size: "btn--s"
+        size: "s"
       });
       responseButton.classList.add("trivial__response-button");
 
@@ -53,45 +70,52 @@ export const Trivial = () => {
       trivialCard.append(responseLi);
     });
 
-    console.log(trivialCard);
-
     trivialCardContainer.append(trivialCard);
     trivialCardContainer.append(buttonValidate);
   });
 
   buttonValidate.addEventListener("click", () => {
     const allCards = trivialCardContainer.querySelectorAll(".trivial__card");
-    let count = 0;
+
+    // Puntajes iniciales
+    let scoreGeneral = parseInt(localStorage.getItem("score")) || 0;
+    let trivialScore = 0;
 
     allCards.forEach((card, index) => {
       const selectedButton = card.querySelector(".btn--primary-selected");
       const correctAnswer = TrivialData[index].correct;
 
       if (selectedButton && selectedButton.textContent === correctAnswer) {
-        count++;
+        trivialScore++;
       }
     });
 
+    scoreGeneral += trivialScore;
+    localStorage.setItem("score", scoreGeneral);
+    localStorage.setItem("trivialScore", trivialScore);
+
     trivialCardContainer.remove();
 
-    const resultsContainer = document.createElement("section");
+    const resultsContainer = document.createElement("div");
     resultsContainer.classList.add(
       "trivial__results-container",
       "flex-container"
     );
     const results = document.createElement("p");
     results.classList.add("trivial__results");
-    if (count === 20) {
-      results.textContent =
-        "¡¡Enhorabuena!!🙌🙌🎉🎉, todas tus respuestas son correctas.";
+
+    if (trivialScore === 20) {
+      results.textContent = `¡¡Enhorabuena!! ${localStorage.getItem(
+        "userName"
+      )}!! 🙌🙌🎉🎉, ganaste la partida`;
     } else {
-      results.textContent = `Respuestas correctas: ${count} de ${TrivialData.length}`;
+      results.textContent = `Respuestas correctas: ${trivialScore} de ${TrivialData.length}`;
     }
 
     const buttonPlayAgain = Button({
       textContent: "Volver a jugar",
-      importance: "btn--tertiary",
-      size: "btn--s"
+      importance: "tertiary",
+      size: "s"
     });
     buttonPlayAgain.classList.add("trivial__button-play-again");
 
@@ -99,12 +123,12 @@ export const Trivial = () => {
 
     trivial.append(resultsContainer);
     resultsContainer.append(results);
+    resultsContainer.append(Punctuation("punctuation-relative"));
     resultsContainer.append(buttonPlayAgain);
   });
 
   trivial.append(gameTitle);
   trivial.append(leyend);
-  trivial.append(Menu());
   trivial.append(trivialCardContainer);
   document.querySelector("main").append(trivial);
 

@@ -1,10 +1,17 @@
 import "./Hero.css";
-import { Button } from "../Button/Button";
-import { GamesData } from "../../data/GamesData.js/GamesData";
-import { HandleClick } from "../../utils/functions/EventListeners/HandleClick";
+
 import { Punctuation } from "../Punctuation/Punctuation";
+import { Footer } from "../Footer/Footer";
+import { GamesData } from "../../data/GamesData/GamesData";
+import { Button } from "../Button/Button";
+import { Navigate } from "../../utils/functions/Navigate/Navigate";
 
 export const Hero = () => {
+  document.querySelector("main").innerHTML = "";
+
+  Punctuation();
+  Footer();
+
   const sectionHero = document.createElement("section");
   sectionHero.classList.add("hero", "flex-container");
 
@@ -13,17 +20,18 @@ export const Hero = () => {
   h1.textContent = "Gameshub";
 
   GamesData.forEach((game) => {
-    const gameButton = Button({ textContent: game.name, id: game.id });
+    const { name, id, path, page } = game;
 
-    const callback = game.function;
-    if (callback) {
-      HandleClick(gameButton, sectionHero, callback);
-    }
+    const gameButton = Button({ textContent: name, id: id });
+
+    gameButton.addEventListener("click", (e) =>
+      Navigate({ e, path: path, page: page })
+    );
 
     sectionHero.append(gameButton);
   });
 
   document.querySelector("main").append(sectionHero);
-  sectionHero.append(Punctuation());
+
   sectionHero.prepend(h1);
 };

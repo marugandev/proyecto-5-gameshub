@@ -59,9 +59,9 @@ export const TrivialData = [
     correct: "<img>"
   },
   {
-    question: "¿Cuál de las siguientes opciones es un bucle en JavaScript?",
+    question: "¿Cuál de las siguientes opciones no es un bucle en JavaScript?",
     answers: ["for", "foreach", "repeat", "while"],
-    correct: "for"
+    correct: "repeat"
   },
   {
     question:

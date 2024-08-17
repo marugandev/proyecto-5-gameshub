@@ -87,3 +87,8 @@
   font-size: var(--gh-font-size-small);
   padding: var(--gh-padding-small);
 }
+
+.btn--xs {
+  font-size: var(--gh-font-size-xsmall);
+  padding: var(--gh-padding-xsmall);
+}

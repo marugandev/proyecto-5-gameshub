@@ -5,8 +5,8 @@ export const Button = ({
   name,
   id,
   textContent,
-  importance = "btn--primary",
-  size = "btn--m",
+  importance = "primary",
+  size = "m",
   title,
   ariaLabel
 }) => {
@@ -15,11 +15,9 @@ export const Button = ({
   if (name) Button.name = name;
   if (id) Button.id = id;
   if (textContent) Button.textContent = textContent;
-  Button.classList.add("btn", importance, size);
+  Button.classList.add("btn", `btn--${importance}`, `btn--${size}`);
   if (title) Button.title = title;
   if (ariaLabel) Button.setAttribute("aria-label", ariaLabel);
 
   return Button;
 };
-
-/* true o false */

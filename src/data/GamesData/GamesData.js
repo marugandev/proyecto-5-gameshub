@@ -6,16 +6,19 @@ export const GamesData = [
   {
     name: "Trivial",
     id: "trivial",
-    function: Trivial
+    path: "/trivial",
+    page: Trivial
   },
   {
     name: "Tres en raya",
     id: "tresEnRaya",
-    function: TresEnRaya
+    path: "/tresenraya",
+    page: TresEnRaya
   },
   {
     name: "Piedra, papel o tijera",
     id: "piedraPapelOTijera",
-    function: PiedraPapelOTijera
+    path: "/piedrapapelotijera",
+    page: PiedraPapelOTijera
   }
 ];

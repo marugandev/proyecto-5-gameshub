@@ -1,4 +1,5 @@
 .trivial {
+  /*  margin-top: 50px;  */
   flex-direction: column;
   /*   height: 100svh; */
   overflow-y: scroll;
@@ -16,6 +17,7 @@
   font-size: var(--gh-font-size-small);
   color: var(--gh-secondary-color);
   text-align: center;
+  padding: var(--gh-padding-medium);
 }
 
 .trivial__card-container {
@@ -66,4 +68,10 @@
   font-size: var(--gh-font-size-small);
   color: var(--gh-secondary-color);
   text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .trivial__button-play-again {
+    width: 90%;
+  }
 }

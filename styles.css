@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bangers&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Yanone+Kaffeesatz&family=Young+Serif&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bangers&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Noto+Color+Emoji&family=Yanone+Kaffeesatz&family=Young+Serif&display=swap");
 
 * {
   margin: 0;
@@ -37,7 +36,6 @@
   /* Font Family */
   --gh-font-family-primary: "Yanone Kaffeesatz", sans-serif;
   --gh-font-family-secondary: "Martel Sans", sans-serif;
-  --gh-font-family-icons: "Noto Color Emoji", sans-serif;
 
   /* Font sizes */
   --gh-font-size-brand: 5rem;
