@@ -1,11 +1,17 @@
 .form {
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  /*   flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100svh;
   background-color: rgba(
     var(--gh-rgb-background-color),
     var(--gh-rgba-background-opacity)
   );
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .form__label {
@@ -13,7 +19,6 @@
 }
 
 .form__input {
-  margin-bottom: 700px;
   width: 350px;
   background-color: transparent;
   border-radius: 50px;
@@ -23,46 +28,40 @@
   box-shadow: var(--gh-box-shadow-black);
   padding-left: 20px;
   padding-right: 20px;
+  color: var(--gh-secondary-color);
 }
 
 .form__input::placeholder {
-  color: (var(--gh-secondary-color));
+  color: var(--gh-secondary-color);
 }
 
-/* Para navegadores WebKit (Safari, Chrome, Edge) */
 .form__input::-webkit-input-placeholder {
-  color: (var(--gh-secondary-color));
+  color: var(--gh-secondary-color);
 }
 
-/* Para Firefox */
 .form__input::-moz-placeholder {
-  color: (var(--gh-secondary-color));
+  color: var(--gh-secondary-color);
 }
 
-/* Para Internet Explorer 10-11 */
 .form__input:-ms-input-placeholder {
-  color: (var(--gh-secondary-color));
+  color: var(--gh-secondary-color);
 }
 
-/* Para Microsoft Edge */
 .form__input::-ms-input-placeholder {
-  color: (var(--gh-secondary-color));
+  color: var(--gh-secondary-color);
 }
 
 .form__button {
-  margin-bottom: 700px;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   .form {
     flex-direction: column;
   }
-  .form__input {
-    margin-bottom: 0;
-  }
+
   .form__button {
     width: 350px;
   }

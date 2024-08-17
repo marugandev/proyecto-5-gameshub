@@ -9,12 +9,16 @@ const InitGameshub = () => {
   const main = document.createElement("main");
   document.body.append(main);
 
-  if (!localStorage.getItem("userName")) {
-    UserName();
-  }
+  const showHero = () => {
+    Hero();
+    PopStateListener({ links: GamesData });
+  };
 
-  Hero();
-  PopStateListener({ links: GamesData });
+  if (!localStorage.getItem("userName")) {
+    UserName(showHero);
+  } else {
+    showHero();
+  }
 };
 
 InitGameshub();
