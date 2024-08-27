@@ -1,6 +1,6 @@
 import "./UserName.css";
 
-import { Button } from "../Button/Button";
+import { Button } from "../../Button/Button";
 
 export const UserName = (callback) => {
   const form = document.createElement("form");

@@ -1,8 +1,7 @@
 .trivial {
   /*  margin-top: 50px;  */
   flex-direction: column;
-  /*   height: 100svh; */
-  overflow-y: scroll;
+  height: 100svh;
 }
 
 .trivial__title {
@@ -23,9 +22,10 @@
 .trivial__card-container {
   height: 100%;
   width: 90%;
+  margin: 0 auto;
   overflow-y: scroll;
   flex-direction: column;
-  margin: 0 auto;
+  justify-content: start;
 }
 
 .trivial__card {
